@@ -9,8 +9,8 @@ const Container = styled.div`
 `
 export const Button = styled.button`
 	border: none;
-	cursor: pointer;
 	color: var(--font-color);
+	cursor: pointer;
 `
 export const Wrapper = styled.div`
 	display: flex;

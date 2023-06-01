@@ -4,15 +4,17 @@ import { Button } from '../Header/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FilteredItems } from './FilteredItems'
+import React, { FormEvent, useState, useContext } from 'react'
+import { RegionContext } from '@/storage/region-context'
 
 const Form = styled.form`
+	position: relative;
 	background-color: var(--secondary);
 	height: 40px;
 	display: flex;
 	flex-direction: row-reverse;
-	box-shadow: 0 0 5px 0px #0000005e;
+	box-shadow: var(--shadow);
 	border-radius: 5px;
-	overflow: hidden;
 	&:focus-within {
 		border: 1px solid var(--font-color);
 	}
@@ -33,22 +35,33 @@ const StyledInput = styled.input`
 		color: var(--gray);
 	}
 `
-const SubmitButton = styled(Button)`
+const SubmitButton = styled.div`
+	display: flex;
+	align-items: center;
 	padding-inline: 1rem;
-	background-color: transparent;
 	&.change-color {
 		color: var(--font-color);
 	}
 `
 
+
 export const Navigaton = () => {
+
+	const regionCtx = useContext(RegionContext)
+
+	const onInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+		regionCtx?.getInputValue(e.target.value)
+	}
+	
+	const onSubmit = (e: FormEvent) => {
+		e.preventDefault()
+	}
 	const loupIcon = <FontAwesomeIcon icon={faMagnifyingGlass} />
 	return (
 		<>
-			<Form>
-				<StyledInput />
+			<Form onSubmit={onSubmit}>
+				<StyledInput onChange={onInput} />
 				<SubmitButton
-					type='button'
 					className='change-color'>
 					{loupIcon}
 				</SubmitButton>

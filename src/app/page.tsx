@@ -1,6 +1,8 @@
 'use client'
 import styled from 'styled-components'
 import { Navigaton } from '@/components/Nav/Navigation'
+import { Regions } from '@/components/Content/Regions'
+import { RegionProvider } from '@/storage/RegionProvider'
 
 const ContentWrapper = styled.div`
 	margin-top: 2rem;
@@ -13,21 +15,26 @@ const StyledNav = styled.nav`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-  
-  
-  @media (min-width: 768px){
-    flex-direction: row;
-    align-items: center;
-  }
+	gap: 15px;
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		align-items: center;
+		gap: 20px;
+	}
 `
 
 export default function Home() {
 	return (
-		<ContentWrapper>
-			<StyledNav>
-				<Navigaton />
-			</StyledNav>
-			<main></main>
-		</ContentWrapper>
+		<RegionProvider>
+			<ContentWrapper>
+				<StyledNav>
+					<Navigaton />
+				</StyledNav>
+				<main>
+					<Regions />
+				</main>
+			</ContentWrapper>
+		</RegionProvider>
 	)
 }

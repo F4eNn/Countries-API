@@ -15,10 +15,13 @@ const GlobalStyles = createGlobalStyle`
     --secondary: #ffff;
     --font-color: #000;
     --primary: #fafafa;
-    --gray: #6d6d6d;
+    --detail-color: #7e7e7e;
     --option: #eeeeee;
+    --error: #d30303;
+    --shadow: 0 0 5px 0px #0000005e;
   }
   .dark-mode{
+    --detail-color: #d1d1d1;
     --option: #7c7b7b;
     --secondary: #2b3844;
     --font-color: #ffff;
