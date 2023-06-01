@@ -25,6 +25,12 @@ const StyledNav = styled.nav`
 `
 
 export default function Home() {
+	
+
+
+
+
+
 	return (
 		<RegionProvider>
 			<ContentWrapper>

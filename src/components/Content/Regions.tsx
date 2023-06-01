@@ -78,6 +78,6 @@ export const Regions = () => {
 			region={country.region}
 		/>
 	))
-		const relevantRender = regionCtx?.isFilterActive ? renderCountryFromRegion : renderCountryFromName
+	const relevantRender = regionCtx?.isFilterActive ? renderCountryFromRegion : renderCountryFromName
 	return <RegionContaine>{relevantRender}</RegionContaine>
 }

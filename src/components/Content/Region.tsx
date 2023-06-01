@@ -1,6 +1,9 @@
 'use client'
 import styled from 'styled-components'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter, } from 'next/navigation'
+import { NextRouter } from 'next/router'
 const Card = styled.div`
 	height: 300px;
 	box-shadow: var(--shadow);
@@ -48,30 +51,52 @@ type RegionProps = {
 	capital: string
 }
 
+type SendProps = NextRouter 
+
 export const Region = (props: RegionProps) => {
+	const router: any = useRouter()
+
+	const sendProps = () => {
+		router.push({
+			pathname: `/${props.name}`,
+			query: {
+				capital: props.capital,
+				flag: props.flag,
+				name: props.name,
+				population: props.population,
+				region: props.region,
+			},
+		})
+	}
+
 	return (
-		<Card>
-			<ImageContainer>
-				<Image
-					alt={props.name}
-					src={props.flag}
-					fill
-				/>
-			</ImageContainer>
-			<ContentCard>
-				<h2>{props.name}</h2>
-				<Details>
-					<p>
-						population: <StyledSpan>{props.population}</StyledSpan>
-					</p>
-					<p>
-						region: <StyledSpan>{props.region}</StyledSpan>
-					</p>
-					<p>
-						capital: <StyledSpan>{props.capital}</StyledSpan>
-					</p>
-				</Details>
-			</ContentCard>
-		</Card>
+		<Link
+			onClick={sendProps}
+			href='#'
+			style={{ textDecoration: 'none' }}>
+			<Card>
+				<ImageContainer>
+					<Image
+						alt={props.name}
+						src={props.flag}
+						fill
+					/>
+				</ImageContainer>
+				<ContentCard>
+					<h2>{props.name}</h2>
+					<Details>
+						<p>
+							population: <StyledSpan>{props.population}</StyledSpan>
+						</p>
+						<p>
+							region: <StyledSpan>{props.region}</StyledSpan>
+						</p>
+						<p>
+							capital: <StyledSpan>{props.capital}</StyledSpan>
+						</p>
+					</Details>
+				</ContentCard>
+			</Card>
+		</Link>
 	)
 }
