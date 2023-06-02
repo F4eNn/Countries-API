@@ -2,6 +2,8 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import { useState } from 'react'
+import Link from 'next/link'
+
 const Container = styled.div`
 	background-color: var(--secondary);
 	padding: 1rem 0;
@@ -42,7 +44,11 @@ export const Header = () => {
 	return (
 		<Container>
 			<Wrapper>
-				<H1>Where in the world?</H1>
+				<Link
+					href={'#'}
+					style={{ textDecoration: 'none' }}>
+					<H1>Where in the world?</H1>
+				</Link>
 				<ToggleBox onClick={switchTheme}>
 					<Image
 						alt=''

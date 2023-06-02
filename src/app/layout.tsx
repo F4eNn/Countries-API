@@ -31,12 +31,13 @@ const GlobalStyles = createGlobalStyle`
   body{
     background-color: var(--primary);
     transition: background-color .2s;
+    height: 100svh;
   }
 `
 
 export const metadata = {
-	title: 'Countries',
-	description: 'api countries',
+	title: "Countries",
+	description: "countries, description ",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,10 +1,10 @@
 'use client'
 import styled from 'styled-components'
 import { Navigaton } from '@/components/Nav/Navigation'
-import { Regions } from '@/components/Content/Regions'
+import { Regions } from '@/components/Content/Home/Regions'
 import { RegionProvider } from '@/storage/RegionProvider'
 
-const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`
 	margin-top: 2rem;
 	width: min(95%, 1200px);
 	margin-inline: auto;
@@ -25,12 +25,6 @@ const StyledNav = styled.nav`
 `
 
 export default function Home() {
-	
-
-
-
-
-
 	return (
 		<RegionProvider>
 			<ContentWrapper>

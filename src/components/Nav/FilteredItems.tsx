@@ -6,7 +6,7 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { Button } from '../Header/Header'
 import { useState, useContext } from 'react'
 import { RegionContext } from '@/storage/region-context'
-import { Region } from '../Content/Region'
+import { Region } from '../Content/Home/Region'
 
 const OptionButtons = styled.button`
 	display: flex;
@@ -99,7 +99,7 @@ export const FilteredItems = () => {
 		setShowOptions(false)
 		setShowFilteredItem(true)
 		regionCtx?.resetFilters(true)
-		regionCtx?.getRegionValue(target.value)
+		regionCtx?.getRegionValue(target.value.toLowerCase())
 	}
 	const deleteFilteredItem = () => {
 		setShowFilteredItem(false)

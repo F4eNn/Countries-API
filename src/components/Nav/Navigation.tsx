@@ -4,7 +4,7 @@ import { Button } from '../Header/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FilteredItems } from './FilteredItems'
-import React, { FormEvent, useState, useContext } from 'react'
+import React, { FormEvent, useContext } from 'react'
 import { RegionContext } from '@/storage/region-context'
 
 const Form = styled.form`

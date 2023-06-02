@@ -14,7 +14,6 @@ const RegionContaine = styled.div`
 		width: 100%;
 	}
 `
-const Loader = styled.div``
 
 interface DataTypes {
 	name: string
@@ -28,20 +27,18 @@ interface DataTypes {
 	region: string
 	population: number
 }
-
+const URL = 'https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region'
 export const Regions = () => {
 	const regionCtx = useContext(RegionContext)
 	const [inputValue, setInputValue] = useState<string | undefined>('')
 	const [filteredFromName, setFilterredFromName] = useState<any>(null)
-	const [optionsAreActive, setOptionsAreActive] = useState(false)
-	console.log()
 	useEffect(() => {
-		setInputValue(regionCtx?.inputValue)
+		setInputValue(regionCtx?.inputValue.toLowerCase())
 	}, [regionCtx?.inputValue])
 
 	useEffect(() => {
 		const fetChData = async () => {
-			const response = await fetch(`/data2.json`)
+			const response = await fetch(URL)
 			if (!response) {
 			}
 			const data = await response.json()
@@ -54,26 +51,28 @@ export const Regions = () => {
 	}, [inputValue])
 
 	const filteredName = (data: any) => {
-		return data.filter((item: any) => item.name.toLowerCase().includes(inputValue))
+		return data.filter((item: any) => item.name.common.toLowerCase().includes(inputValue))
 	}
 
 	const renderCountryFromName = filteredFromName?.map((country: any, index: number) => (
 		<Region
 			key={index}
-			capital={country.capital}
-			flag={country.flag}
-			name={country.name}
+			capital={country.capital[0]}
+			flag={country.flags.png}
+			name={country.name.common}
 			population={country.population}
 			region={country.region}
 		/>
 	))
-	const filteredFromRegion = filteredFromName?.filter((item: any) => item.region.includes(regionCtx?.regionValue))
+	const filteredFromRegion = filteredFromName?.filter((item: any) =>
+		item.region.toLowerCase().includes(regionCtx?.regionValue)
+	)
 	const renderCountryFromRegion = filteredFromRegion?.map((country: any, index: number) => (
 		<Region
 			key={index}
-			capital={country.capital}
-			flag={country.flag}
-			name={country.name}
+			capital={country.capital[0]}
+			flag={country.flags.png}
+			name={country.name.common}
 			population={country.population}
 			region={country.region}
 		/>
