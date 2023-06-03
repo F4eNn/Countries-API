@@ -2,10 +2,9 @@
 
 [Design from](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
-![Desktop]('./public/desktop-preview.jpg')
-
-
-
+![dekstop](./public/desktop-preview.jpg)
+![mobile](./public/mobile-preview.png)
+![mobile](./public/mobile.png)
 ## Tools
 
 [Next.js](https://nextjs.org/)
