@@ -1,6 +1,5 @@
 'use client'
 import styled from 'styled-components'
-import { Button } from '../Header/Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FilteredItems } from './FilteredItems'
@@ -44,15 +43,13 @@ const SubmitButton = styled.div`
 	}
 `
 
-
 export const Navigaton = () => {
-
 	const regionCtx = useContext(RegionContext)
 
 	const onInput = (e: React.ChangeEvent<HTMLInputElement>) => {
 		regionCtx?.getInputValue(e.target.value)
 	}
-	
+
 	const onSubmit = (e: FormEvent) => {
 		e.preventDefault()
 	}
@@ -60,11 +57,14 @@ export const Navigaton = () => {
 	return (
 		<>
 			<Form onSubmit={onSubmit}>
-				<StyledInput onChange={onInput} />
-				<SubmitButton
-					className='change-color'>
-					{loupIcon}
-				</SubmitButton>
+				<label
+					htmlFor='search-country'
+					aria-label='looking for country'></label>
+				<StyledInput
+					id='search-country'
+					onChange={onInput}
+				/>
+				<SubmitButton className='change-color'>{loupIcon}</SubmitButton>
 			</Form>
 			<FilteredItems />
 		</>

@@ -4,14 +4,14 @@ import { Navigaton } from '@/components/Nav/Navigation'
 import { Regions } from '@/components/Content/Home/Regions'
 import { RegionProvider } from '@/storage/RegionProvider'
 
-export const ContentWrapper = styled.div`
+const ContentWrapper = styled.div`
 	margin-top: 2rem;
 	width: min(95%, 1200px);
 	margin-inline: auto;
 	display: flex;
 	flex-direction: column;
 `
-const StyledNav = styled.nav`
+const StyledNavigation = styled.nav`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -28,9 +28,9 @@ export default function Home() {
 	return (
 		<RegionProvider>
 			<ContentWrapper>
-				<StyledNav>
+				<StyledNavigation>
 					<Navigaton />
-				</StyledNav>
+				</StyledNavigation>
 				<main>
 					<Regions />
 				</main>

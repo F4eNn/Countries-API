@@ -1,9 +1,10 @@
+'use client'
 import { RegionContext } from './region-context'
 import { useState } from 'react'
 export const RegionProvider = ({ children }: { children: React.ReactNode }) => {
 	const [inputValue, setInputValue] = useState('')
 	const [regionValue, setRegionValue] = useState('')
-	const [isFilterActive, setIsFilterActive ] = useState(false)
+	const [isFilterActive, setIsFilterActive] = useState(false)
 
 	const getInputValue = (value: string) => {
 		setInputValue(value)
@@ -15,15 +16,13 @@ export const RegionProvider = ({ children }: { children: React.ReactNode }) => {
 		setIsFilterActive(value)
 	}
 
-
-
 	const contextValue = {
 		inputValue,
 		regionValue,
 		isFilterActive,
 		getInputValue,
 		getRegionValue,
-		resetFilters
+		resetFilters,
 	}
 
 	return <RegionContext.Provider value={contextValue}>{children}</RegionContext.Provider>

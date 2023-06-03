@@ -6,7 +6,6 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { Button } from '../Header/Header'
 import { useState, useContext } from 'react'
 import { RegionContext } from '@/storage/region-context'
-import { Region } from '../Content/Home/Region'
 
 const OptionButtons = styled.button`
 	display: flex;
