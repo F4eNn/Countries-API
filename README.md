@@ -1,8 +1,10 @@
+[Live](https://countries-api-two-beta.vercel.app/)
+
 [Design from](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
-[Desktop]('./../public/desktop-preview.jpg')
-[Mobile ligt mode]('./../public/mobile-preview.png')
-[Mobile dark mode]('./../public/mobile.png')
+[Desktop]('./public/desktop-preview.jpg')
+[Mobile ligt mode]('./public/mobile-preview.png')
+[Mobile dark mode]('./public/mobile.png')
 
 ## Tools
 
